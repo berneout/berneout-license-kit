@@ -18,11 +18,11 @@
     "standard": false
   },
   {
-    "file": "disclaimer",
+    "file": "risk/disclaimer",
     "standard": true
   },
   {
-    "file": "liability",
+    "file": "risk/liability",
     "standard": true
   },
   {
