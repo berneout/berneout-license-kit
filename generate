@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-var identifier = process.argv[2] || 'Base'
+var identifier = process.argv[2] || 'BASE'
 
 var meta = require('./components')
-var codes = identifier === 'Base'
+var codes = identifier === 'BASE'
   ? []
   : identifier.toUpperCase().split('-')
 
@@ -23,7 +23,7 @@ var path = require('path')
 var VERSION = require('./version')
 var license = [
   'Berneout Kit License ' +
-  (identifier === 'Base' ? 'Base' : identifier.toUpperCase()),
+  (identifier === 'BASE' ? 'BASE' : identifier.toUpperCase()),
   // TODO: versioning
   'Version ' + VERSION,
   // TODO: canonical URIs
