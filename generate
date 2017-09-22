@@ -64,6 +64,11 @@ function printComponent (component) {
     label +
     stars +
     fs.readFileSync(file, 'utf8')
+      .split('\n')
+      .filter(function (line) {
+        return line.indexOf('#') !== 0
+      })
+      .join('\n')
       .replace(/[\n\r\s]+/g, ' ')
       .trim() +
     stars
