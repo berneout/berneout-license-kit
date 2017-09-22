@@ -49,9 +49,36 @@
     "standard": false
   },
   {
-    "code": "TRM",
-    "file": "termination",
-    "standard": false
+    "code": "CTC",
+    "file": "terminate/narrow-copyright",
+    "standard": false,
+    "conflicts": [
+      "CTA"
+    ]
+  },
+  {
+    "code": "PTP",
+    "file": "terminate/narrow-patent",
+    "standard": false,
+    "conflicts": [
+      "PTA"
+    ]
+  },
+  {
+    "code": "CTA",
+    "file": "terminate/broad-copyright",
+    "standard": false,
+    "conflicts": [
+      "CTC"
+    ]
+  },
+  {
+    "code": "PTA",
+    "file": "terminate/broad-patent",
+    "standard": false,
+    "conflicts": [
+      "PTP"
+    ]
   },
   {
     "code": "TMK",
