@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "devDependencies": {
+    "ajv-cli": "^2.1.0"
+  },
+  "scripts": {
+    "test": "ajv validate -s components/schema.json -d components/index.json"
+  }
+}
