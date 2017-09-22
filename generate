@@ -24,7 +24,7 @@ var license = [
   'Modular License ' +
   (identifier === 'Base' ? 'Base' : identifier.toUpperCase()),
   // TODO: versioning
-  'Version x.y.z',
+  'Version ' + require('./version'),
   // TODO: canonical URIs
   'https://example.com/l/' + identifier
 ]
