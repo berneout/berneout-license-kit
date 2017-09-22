@@ -57,8 +57,12 @@ process.stdout.write(license.join('\n\n') + '\n')
 
 function printComponent (component) {
   var file = path.join('components', component.file)
+  var stars = component.conspicuous ? '**' : ''
   license.push(
+    stars +
     fs.readFileSync(file, 'utf8')
       .replace(/[\n\r\s]+/g, ' ')
+      .trim() +
+    stars
   )
 }

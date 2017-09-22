@@ -9,6 +9,9 @@
             "type": "string"
           },
           "standard": {
+            "const": true
+          },
+          "conspicuous": {
             "type": "boolean"
           }
         },

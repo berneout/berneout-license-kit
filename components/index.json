@@ -19,11 +19,13 @@
   },
   {
     "file": "risk/disclaimer",
-    "standard": true
+    "standard": true,
+    "conspicuous": true
   },
   {
     "file": "risk/liability",
-    "standard": true
+    "standard": true,
+    "conspicuous": true
   },
   {
     "code": "CON",
