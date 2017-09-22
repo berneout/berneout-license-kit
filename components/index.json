@@ -1,40 +1,36 @@
 [
   {
-    "file": "purpose",
+    "code": "PRS",
     "standard": true
   },
   {
-    "file": "risk/disclaimer",
+    "code": "DIS",
     "standard": true,
     "conspicuous": true
   },
   {
-    "file": "risk/liability",
+    "code": "LIA",
     "standard": true,
     "conspicuous": true
   },
   {
-    "file": "permit/copyright",
+    "code": "CPY",
     "standard": true
   },
   {
     "code": "PAT",
-    "file": "permit/patent",
     "standard": false
   },
   {
     "code": "NOT",
-    "file": "notice",
     "standard": false
   },
   {
     "code": "CON",
-    "file": "contribution",
     "standard": false
   },
   {
     "code": "OSI",
-    "file": "copyleft/osi",
     "requires": [
       "COPY"
     ],
@@ -42,7 +38,6 @@
   },
   {
     "code": "SRC",
-    "file": "copyleft/source",
     "requires": [
       "COPY"
     ],
@@ -50,7 +45,6 @@
   },
   {
     "code": "CTC",
-    "file": "terminate/narrow-copyright",
     "standard": false,
     "conflicts": [
       "CTA"
@@ -58,7 +52,6 @@
   },
   {
     "code": "PTP",
-    "file": "terminate/narrow-patent",
     "standard": false,
     "requires": [
       "PAT"
@@ -69,7 +62,6 @@
   },
   {
     "code": "CTA",
-    "file": "terminate/broad-copyright",
     "standard": false,
     "conflicts": [
       "CTC"
@@ -77,7 +69,6 @@
   },
   {
     "code": "PTA",
-    "file": "terminate/broad-patent",
     "standard": false,
     "conflicts": [
       "PTP"
@@ -85,17 +76,14 @@
   },
   {
     "code": "TMK",
-    "file": "clarify/trademark",
     "standard": false
   },
   {
     "code": "CNG",
-    "file": "changes",
     "standard": false
   },
   {
     "code": "SVC",
-    "file": "clarify/service",
     "standard": false
   }
 ]

@@ -57,7 +57,7 @@ if (unused.length !== 0) {
 process.stdout.write(license.join('\n\n') + '\n')
 
 function printComponent (component) {
-  var file = path.join('components', component.file + '.md')
+  var file = path.join('components', component.code + '.md')
   var stars = component.conspicuous ? '**' : ''
   // Uniform Commercial Code 1-201(b)(10):
   //
@@ -81,7 +81,7 @@ function printComponent (component) {
   //         from surrounding text of the same size by
   //         symbols or other marks that call attention to
   //         the language.
-  var label = component.code ? component.code.toUpperCase() + ': ' : ''
+  var label = component.standard ? '' : component.code.toUpperCase() + ': '
   var defence = require('defence')
   license.push(
     label +

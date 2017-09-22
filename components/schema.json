@@ -1,62 +1,41 @@
 {
   "type": "array",
   "items": {
-    "or": [
-      {
-        "type": "object",
-        "properties": {
-          "file": {
-            "type": "string"
-          },
-          "standard": {
-            "const": true
-          },
-          "conspicuous": {
-            "type": "boolean"
-          }
+    "or": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/code"
         },
-        "required": [
-          "file",
-          "standard"
-        ],
-        "additionalProperties": false
-      },
-      {
-        "type": "object",
-        "properties": {
-          "code": {
+        "file": {
+          "type": "string",
+          "minLength": 1
+        },
+        "standard": {
+          "type": "boolean"
+        },
+        "requires": {
+          "type": "array",
+          "items": {
             "$ref": "#/definitions/code"
           },
-          "file": {
-            "type": "string",
-            "minLength": 1
-          },
-          "standard": {
-            "type": "boolean"
-          },
-          "requires": {
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/code"
-            },
-            "minItems": 1
-          },
-          "conflicts": {
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/code"
-            },
-            "minItems": 1
-          }
+          "minItems": 1
         },
-        "required": [
-          "code",
-          "file",
-          "standard"
-        ],
-        "additionalProperties": false
-      }
-    ]
+        "conflicts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/code"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "code",
+        "file",
+        "standard"
+      ],
+      "additionalProperties": false
+    }
   },
   "minItems": 1,
   "definitions": {
