@@ -18,8 +18,8 @@ This language also appears in `CPY`.
 Quote "read on", since it's patent lingo.
 
     just before
-    and just after
-    each of their contributions.
+    or just after
+    any of their contributions.
 
 Patent license scope could cover any or all of:
 
