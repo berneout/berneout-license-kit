@@ -1,0 +1,64 @@
+[
+  {
+    "file": "purpose",
+    "standard": true
+  },
+  {
+    "file": "copyright",
+    "standard": true
+  },
+  {
+    "code": "PAT",
+    "file": "patent",
+    "standard": false
+  },
+  {
+    "code": "NOT",
+    "file": "notice",
+    "standard": false
+  },
+  {
+    "file": "disclaimer",
+    "standard": true
+  },
+  {
+    "file": "liability",
+    "standard": true
+  },
+  {
+    "code": "CON",
+    "file": "contribution",
+    "standard": false
+  },
+  {
+    "code": "OSI",
+    "file": "copyleft/osi",
+    "requires": [
+      "COPY"
+    ],
+    "standard": false
+  },
+  {
+    "code": "SRC",
+    "file": "copyleft/source",
+    "requires": [
+      "COPY"
+    ],
+    "standard": false
+  },
+  {
+    "code": "TRM",
+    "file": "termination",
+    "standard": false
+  },
+  {
+    "code": "TMK",
+    "file": "trademark",
+    "standard": false
+  },
+  {
+    "code": "CNG",
+    "file": "changes",
+    "standard": false
+  }
+]
