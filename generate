@@ -57,7 +57,7 @@ if (unused.length !== 0) {
 process.stdout.write(license.join('\n\n') + '\n')
 
 function printComponent (component) {
-  var file = path.join('components', component.file)
+  var file = path.join('components', component.file + '.md')
   var stars = component.conspicuous ? '**' : ''
   // Uniform Commercial Code 1-201(b)(10):
   //
@@ -82,15 +82,11 @@ function printComponent (component) {
   //         symbols or other marks that call attention to
   //         the language.
   var label = component.code ? component.code.toUpperCase() + ': ' : ''
+  var defence = require('defence')
   license.push(
     label +
     stars +
-    fs.readFileSync(file, 'utf8')
-      .split('\n')
-      .filter(function (line) {
-        return line.indexOf('#') !== 0
-      })
-      .join('\n')
+    defence(fs.readFileSync(file, 'utf8'))
       .replace(/[\n\r\s]+/g, ' ')
       .trim() +
     stars

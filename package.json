@@ -2,6 +2,7 @@
   "private": true,
   "devDependencies": {
     "ajv-cli": "^2.1.0",
+    "defence": "^2.0.1",
     "powerset": "0.0.1"
   },
   "scripts": {
