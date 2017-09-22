@@ -4,12 +4,12 @@
     "standard": true
   },
   {
-    "file": "copyright",
+    "file": "permit/copyright",
     "standard": true
   },
   {
     "code": "PAT",
-    "file": "patent",
+    "file": "permit/patent",
     "standard": false
   },
   {
