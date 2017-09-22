@@ -60,6 +60,9 @@
     "code": "PTP",
     "file": "terminate/narrow-patent",
     "standard": false,
+    "requires": [
+      "PAT"
+    ],
     "conflicts": [
       "PTA"
     ]
