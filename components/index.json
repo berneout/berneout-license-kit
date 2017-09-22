@@ -60,5 +60,10 @@
     "code": "CNG",
     "file": "changes",
     "standard": false
+  },
+  {
+    "code": "SVC",
+    "file": "clarify/service",
+    "standard": false
   }
 ]
