@@ -1,0 +1,64 @@
+#!/usr/bin/env node
+var identifier = process.argv[2] || 'Base'
+
+var meta = require('./components')
+var codes = identifier === 'Base'
+  ? []
+  : identifier.toUpperCase().split('-')
+
+var sorted = codes.every(function (code, index) {
+  return (
+    index === 0 ||
+    code.localeCompare(codes[index - 1]) === 1
+  )
+})
+if (!sorted) {
+  process.stderr.write('Identifier codes are not in alpha order.\n')
+  process.exit(1)
+}
+
+var used = new Array(codes.length)
+var fs = require('fs')
+var path = require('path')
+var license = [
+  'Modular License ' +
+  (identifier === 'Base' ? 'Base' : identifier.toUpperCase()),
+  // TODO: versioning
+  'Version x.y.z',
+  // TODO: canonical URIs
+  'https://example.com/l/' + identifier
+]
+
+meta.forEach(function (component) {
+  if (component.standard) {
+    printComponent(component)
+  } else {
+    var index = codes.indexOf(component.code.toUpperCase())
+    if (index !== -1) {
+      used[index] = true
+      printComponent(component)
+    }
+  }
+})
+
+var unused = []
+for (var index = 0; index < used.length; index++) {
+  if (used[index] !== true) unused.push(codes[index])
+}
+
+if (unused.length !== 0) {
+  unused.forEach(function (unused) {
+    process.stderr.write('Invalid Code: ' + unused + '\n')
+  })
+  process.exit(1)
+}
+
+process.stdout.write(license.join('\n\n') + '\n')
+
+function printComponent (component) {
+  var file = path.join('components', component.file)
+  license.push(
+    fs.readFileSync(file, 'utf8')
+      .replace(/[\n\r\s]+/g, ' ')
+  )
+}
