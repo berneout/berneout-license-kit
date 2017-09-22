@@ -20,13 +20,14 @@ if (!sorted) {
 var used = new Array(codes.length)
 var fs = require('fs')
 var path = require('path')
+var VERSION = require('./version')
 var license = [
   'Modular License ' +
   (identifier === 'Base' ? 'Base' : identifier.toUpperCase()),
   // TODO: versioning
-  'Version ' + require('./version'),
+  'Version ' + VERSION,
   // TODO: canonical URIs
-  'https://example.com/l/' + identifier
+  'https://berneout.org/kit/' + VERSION + '/' + identifier
 ]
 
 meta.forEach(function (component) {
