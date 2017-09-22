@@ -1,7 +1,49 @@
 #!/usr/bin/env node
+var powerset = require('powerset')
+var components = require('./components')
 
-function generate (identifier, stream, callback) {
-  var identifier = identifier || 'BASE'
+function combinations () {
+  var returned = powerset(
+    components.filter(function (component) {
+      return component.standard !== true
+    })
+  )
+    .filter(function (combo) {
+      return !combo.some(function (component) {
+        return (
+          (
+            component.requires &&
+            component.requires.some(function (requiredCode) {
+              return !combo.some(function (otherComponent) {
+                return otherComponent.code === requiredCode
+              })
+            })
+          ) ||
+          (
+            component.conflicts &&
+            component.conflicts.some(function (conflictingCode) {
+              return combo.some(function (otherComponent) {
+                return otherComponent.code === conflictingCode
+              })
+            })
+          )
+        )
+      })
+    })
+    .map(function (combo) {
+      return combo
+        .map(function (component) {
+          return component.code
+        })
+        .sort()
+        .join('-')
+    })
+  returned[0] = 'BASE'
+  return returned
+}
+
+function generate (identifier, stream, done) {
+  identifier = identifier || 'BASE'
 
   var meta = require('./components')
   var codes = identifier === 'BASE'
@@ -15,7 +57,7 @@ function generate (identifier, stream, callback) {
     )
   })
   if (!sorted) {
-    return callback('Identifier codes are not in alpha order.')
+    return done('Identifier codes are not in alpha order.')
   }
 
   var used = new Array(codes.length)
@@ -49,7 +91,7 @@ function generate (identifier, stream, callback) {
   }
 
   if (unused.length !== 0) {
-    return callback(
+    return done(
       unused
         .map(function (unused) {
           stream.write('Invalid Code: ' + unused + '\n')
@@ -59,7 +101,7 @@ function generate (identifier, stream, callback) {
   }
 
   stream.write(license.join('\n\n') + '\n')
-  callback()
+  done()
 
   function printComponent (component) {
     var file = path.join('components', component.code + '.md')
@@ -99,13 +141,16 @@ function generate (identifier, stream, callback) {
   }
 }
 
-if (module.parent) {
-  module.exports = generate
-} else {
-  generate(process.argv[2], process.stdout, function (error) {
-    if (error) {
-      process.stderr.write(error + '\n')
-      process.exit(1)
-    }
+var fs = require('fs')
+var path = require('path')
+combinations()
+  .forEach(function (identifier) {
+    var file = path.join(__dirname, 'licenses', identifier)
+    generate(
+      identifier,
+      fs.createWriteStream(file),
+      function (error) {
+        if (error) process.stderr.write(error + '\n')
+      }
+    )
   })
-}
