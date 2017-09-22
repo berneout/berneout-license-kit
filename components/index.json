@@ -4,6 +4,16 @@
     "standard": true
   },
   {
+    "file": "risk/disclaimer",
+    "standard": true,
+    "conspicuous": true
+  },
+  {
+    "file": "risk/liability",
+    "standard": true,
+    "conspicuous": true
+  },
+  {
     "file": "permit/copyright",
     "standard": true
   },
@@ -16,16 +26,6 @@
     "code": "NOT",
     "file": "notice",
     "standard": false
-  },
-  {
-    "file": "risk/disclaimer",
-    "standard": true,
-    "conspicuous": true
-  },
-  {
-    "file": "risk/liability",
-    "standard": true,
-    "conspicuous": true
   },
   {
     "code": "CON",
