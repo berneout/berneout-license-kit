@@ -59,6 +59,28 @@ process.stdout.write(license.join('\n\n') + '\n')
 function printComponent (component) {
   var file = path.join('components', component.file)
   var stars = component.conspicuous ? '**' : ''
+  // Uniform Commercial Code 1-201(b)(10):
+  //
+  //   "Conspicuous", with reference to a term, means so
+  //   written, displayed, or presented that a reasonable
+  //   person against which it is to operate ought to have
+  //   noticed it. Whether a term is "conspicuous" or not is
+  //   a decision for the court. Conspicuous terms include
+  //   the following:
+  //
+  //     (A) a heading in capitals equal to or greater in
+  //         size than the surrounding text, or in
+  //         contrasting type, font, or color to the
+  //         surrounding text of the same or lesser size;
+  //         and
+  //
+  //     (B) language in the body of a record or display
+  //         in larger type than the surrounding text, or
+  //         in contrasting type, font, or color to the
+  //         surrounding text of the same size, or set off
+  //         from surrounding text of the same size by
+  //         symbols or other marks that call attention to
+  //         the language.
   var label = component.code ? component.code.toUpperCase() + ': ' : ''
   license.push(
     label +
