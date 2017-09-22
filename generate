@@ -22,7 +22,7 @@ var fs = require('fs')
 var path = require('path')
 var VERSION = require('./version')
 var license = [
-  'Modular License ' +
+  'Berneout Kit License ' +
   (identifier === 'Base' ? 'Base' : identifier.toUpperCase()),
   // TODO: versioning
   'Version ' + VERSION,
