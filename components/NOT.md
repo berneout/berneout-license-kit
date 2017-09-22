@@ -2,9 +2,7 @@
     that everyone who receives
     a copy of the software
     from you
-    also receives copies,
-    or free-of-charge access to copies,
-    of
+    also receives the content of
     this license,
     any licensing notices,
     and any notices about how to get source code.
