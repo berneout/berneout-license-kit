@@ -6,6 +6,7 @@
     "powerset": "0.0.1"
   },
   "scripts": {
+    "build": "mkdir -p build && ./generate-combinations",
     "test": "ajv validate -s components/schema.json -d components/index.json",
     "spell": "find components -type f -not -iname '*.json' -exec bash -c 'aspell list < {}' \\;"
   }

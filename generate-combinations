@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+var combinations = require('./combinations')
+var generate = require('./generate')
+var fs = require('fs')
+var path = require('path')
+combinations()
+  .forEach(function (identifier) {
+    var file = path.join(__dirname, 'build', identifier)
+    generate(
+      identifier,
+      fs.createWriteStream(file),
+      function (error) {
+        if (error) process.stderr.write(error + '\n')
+      }
+    )
+  })

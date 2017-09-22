@@ -2,41 +2,48 @@
 var powerset = require('powerset')
 var components = require('./components')
 
-powerset(
-  components.filter(function (component) {
-    return component.standard !== true
-  })
-)
-  .filter(function (combo) {
-    return !combo.some(function (component) {
-      return (
-        (
-          component.requires &&
-          component.requires.some(function (requiredCode) {
-            return !combo.some(function (otherComponent) {
-              return otherComponent.code === requiredCode
-            })
-          })
-        ) ||
-        (
-          component.conflicts &&
-          component.conflicts.some(function (conflictingCode) {
-            return combo.some(function (otherComponent) {
-              return otherComponent.code === conflictingCode
-            })
-          })
-        )
-      )
+function combinations () {
+  var returned = powerset(
+    components.filter(function (component) {
+      return component.standard !== true
     })
-  })
-  .forEach(function (combo) {
-    process.stdout.write(
-      combo
+  )
+    .filter(function (combo) {
+      return !combo.some(function (component) {
+        return (
+          (
+            component.requires &&
+            component.requires.some(function (requiredCode) {
+              return !combo.some(function (otherComponent) {
+                return otherComponent.code === requiredCode
+              })
+            })
+          ) ||
+          (
+            component.conflicts &&
+            component.conflicts.some(function (conflictingCode) {
+              return combo.some(function (otherComponent) {
+                return otherComponent.code === conflictingCode
+              })
+            })
+          )
+        )
+      })
+    })
+    .map(function (combo) {
+      return combo
         .map(function (component) {
           return component.code
         })
         .sort()
-        .join('-') +
-      '\n'
-    )
-  })
+        .join('-')
+    })
+  returned[0] = 'BASE'
+  return returned
+}
+
+if (module.parent) {
+  module.exports = combinations
+} else {
+  process.stdout.write(combinations().join('\n') + '\n')
+}
