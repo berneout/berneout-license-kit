@@ -1,0 +1,42 @@
+#!/usr/bin/env node
+var powerset = require('powerset')
+var components = require('./components')
+
+powerset(
+  components.filter(function (component) {
+    return component.standard !== true
+  })
+)
+  .filter(function (combo) {
+    return !combo.some(function (component) {
+      return (
+        (
+          component.requires &&
+          component.requires.some(function (requiredCode) {
+            return !combo.some(function (otherComponent) {
+              return otherComponent.code === requiredCode
+            })
+          })
+        ) ||
+        (
+          component.conflicts &&
+          component.conflicts.some(function (conflictingCode) {
+            return combo.some(function (otherComponent) {
+              return otherComponent.code === conflictingCode
+            })
+          })
+        )
+      )
+    })
+  })
+  .forEach(function (combo) {
+    process.stdout.write(
+      combo
+        .map(function (component) {
+          return component.code
+        })
+        .sort()
+        .join('-') +
+      '\n'
+    )
+  })

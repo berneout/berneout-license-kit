@@ -1,7 +1,8 @@
 {
   "private": true,
   "devDependencies": {
-    "ajv-cli": "^2.1.0"
+    "ajv-cli": "^2.1.0",
+    "powerset": "0.0.1"
   },
   "scripts": {
     "test": "ajv validate -s components/schema.json -d components/index.json"
