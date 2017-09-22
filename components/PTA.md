@@ -1,4 +1,4 @@
-    Your permission
+    All your permission
     under this license
     automatically ends
     if you sue
