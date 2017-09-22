@@ -8,3 +8,8 @@ $(BUILD)/%: components | $(BUILD)
 
 $(BUILD):
 	mkdir -p $(BUILD)
+
+.PHONY: clean
+
+clean:
+	rm -rf $(BUILD)
