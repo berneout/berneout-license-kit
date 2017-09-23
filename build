@@ -75,7 +75,19 @@ function generate (identifier, stream, done) {
 
   meta.forEach(function (component) {
     if (component.standard) {
-      printComponent(component)
+      if (component.code === 'CND') {
+        var haveCondition = meta.some(function (component) {
+          return (
+            codes.indexOf(component.code.toUpperCase()) !== -1 &&
+            component.condition
+          )
+        })
+        if (haveCondition) {
+          printComponent(component)
+        }
+      } else {
+        printComponent(component)
+      }
     } else {
       var index = codes.indexOf(component.code.toUpperCase())
       if (index !== -1) {

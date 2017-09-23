@@ -22,26 +22,34 @@
     "standard": false
   },
   {
+    "code": "CND",
+    "standard": true
+  },
+  {
     "code": "NOT",
-    "standard": false
+    "standard": false,
+    "condition": true
   },
   {
     "code": "CON",
-    "standard": false
+    "standard": false,
+    "condition": true
   },
   {
     "code": "OSI",
     "requires": [
       "COPY"
     ],
-    "standard": false
+    "standard": false,
+    "condition": true
   },
   {
     "code": "SRC",
     "requires": [
       "COPY"
     ],
-    "standard": false
+    "standard": false,
+    "condition": true
   },
   {
     "code": "CTC",
@@ -80,7 +88,8 @@
   },
   {
     "code": "CNG",
-    "standard": false
+    "standard": false,
+    "condition": true
   },
   {
     "code": "SVC",
