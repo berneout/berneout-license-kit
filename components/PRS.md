@@ -3,4 +3,5 @@
     to make their contributions
     to the software
     freely available to others
-    at minimum risk to themself.
+    and minimize their legal risk
+    in doing so.
